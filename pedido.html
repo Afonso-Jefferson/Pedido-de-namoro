@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer namorar comigo?</title>
+    <style>
+        body {
+            background-color: #ffccff;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        h1 {
+            background-color: white;
+            border: 2px solid purple;
+            border-radius: 20px;
+            color: purple;
+            font-size: 36px;
+            margin-top: 50px;
+            padding: 10px 20px;
+        }
+        button {
+            background-color: white;
+            border: 2px solid purple;
+            border-radius: 20px;
+            color: purple;
+            cursor: pointer;
+            font-size: 24px;
+            margin: 20px;
+            padding: 10px 20px;
+        }
+        button:hover {
+            background-color: purple;
+            color: white;
+        }
+        #no {
+            position: absolute;
+        }
+        #alert {
+            animation: fadeIn 1s linear forwards, slideUp 1s linear forwards;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            display: none;
+            font-size: 24px;
+            left: 0;
+            padding-top: 20%;
+            position: fixed;
+            text-align:center; 
+            top:0; 
+            width:100%; 
+            height:100%
+        }
+        @keyframes fadeIn {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+        @keyframes slideUp {
+          from {transform: translateY(100%);}
+          to {transform: translateY(0);}
+        }
+        
+        /* Added pulse animation */
+        @keyframes pulse {
+          from {transform: scale(1);}
+          to {transform: scale(1.2);}
+        }
+
+        #heart {
+          animation:pulse 0.3s linear infinite alternate-reverse; 
+          color:red; 
+          display:none; 
+          font-size:48px; 
+          margin-bottom:-10px
+        }
+        
+        #broken-heart {
+          color:red; 
+          display:none; 
+          font-size:48px; 
+          margin-bottom:-10px
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Quer Namorar comigo?</h1>
+    <button id="yes">SIM</button>
+    <button id="no">NÃO</button>
+    <div id="alert">
+      <div id="heart">❤️</div>
+      Eu sou mais feliz a cada passo que dou ao seu lado. Eu te amo, meu Ornitorrincozinho Alado!
+    </div>
+
+    <div id="broken-heart">💔</div>
+
+    <script>      
+      document.getElementById("yes").onclick = function() {
+        document.getElementById("alert").style.display = "block";
+        document.getElementById("heart").style.display = "block";
+      };
+      
+      document.getElementById("no").onclick = function() {
+        document.getElementById("broken-heart").style.display = "block";
+      };
+      
+      document.getElementById("no").onmouseover = function() {
+        var x = Math.floor(Math.random() * window.innerWidth);
+        var y = Math.floor(Math.random() * window.innerHeight);
+        
+        document.getElementById("no").style.left = x + "px";
+        document.getElementById("no").style.top = y + "px";
+      };
+    </script>
+</body>
+</html>
